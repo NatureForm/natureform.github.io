@@ -31,7 +31,7 @@ This is the most powerful, complex, and "pure" solution. It treats the entire pr
 
   * **The Verdict:** This is the most flexible and scalable solution, as it creates a true, generic CAD program in the browser. It is also by far the most difficult, requiring you to build and maintain multiple complex CAD plugins and a sophisticated JavaScript interpreter.
 
-  * **Learn more:** **[In-depth: The "Feature Tree to Manifold" (Transpiler) Architecture](./FeatureTreeToManifold3d.md)**
+  * **Learn more:** **[In-depth: The "Feature Tree to Manifold" (Transpiler) Architecture](FeatureTreeToManifold3d.md)**
 
 ## 3\. The "Domain-Specific" Generator Approach (The "Emulator")
 
@@ -41,7 +41,7 @@ This is the pragmatic and highly effective solution you are implementing. It "fa
 
   * **The Verdict:** This is the **fastest and most robust** solution for product configurators. It avoids 99% of the complexity of "real" CAD. It's decoupled, meaning the web visual can be a simple "wrapper" of boards, while the "real" CAD model for manufacturing can be far more detailed.
 
-  * **Learn more:** **[In-depth: The "Domain-Specific" (Wrapping) Architecture](./Wrapping.md)**
+  * **Learn more:** **[In-depth: The "Domain-Specific" (Wrapping) Architecture](Wrapping.md)**
 
 ## Comparison Summary
 

@@ -1,6 +1,6 @@
-	## Documentation Overview
+## Documentation Overview
 
-- [Home](index.md)
+- [Home](Seminar/NatureForm_docs/docs/index.md)
 ## Frontend
 ### Model Configurator
 - [Overview](Frontend/ModelConfigurator/index.md)
@@ -12,14 +12,14 @@
 - [Framework](Frontend/Framework.md)
 
 ## ThreeJS
-- [Overview](ThreeJS/index.md)
+- [Overview](Seminar/NatureForm_docs/docs/ThreeJS/index.md)
 - [ThreeJS Backend](ThreeJS/ThreeJS%20Backend.md)
 
 ## Cad to ThreeJS
-- [Overview](CadToThreeJS/index.md)
-- [GLB + Parameters](CadToThreeJS/GLB+Parameters.md)
-- [Object Wrapping](CadToThreeJS/Wrapping.md)
-- [Feature Tree Transpiling](CadToThreeJS/FeatureTreeToManifold3d.md)
+- [Overview](Seminar/NatureForm_docs/docs/Fertigung/CadToThreeJS/index.md)
+- [GLB + Parameters](GLB+Parameters.md)
+- [Object Wrapping](Wrapping.md)
+- [Feature Tree Transpiling](FeatureTreeToManifold3d.md)
 
 ## Fertigung
 - [Overview](Fertigung/Fertigung.md)

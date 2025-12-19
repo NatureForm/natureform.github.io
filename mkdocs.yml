@@ -2,7 +2,7 @@ site_name: 'NatureForm Documentation'
 site_url: 'https://natureform.github.io' 
 
 theme:
-  name: mkdocs
+  name: material
   features:
     - navigation.tabs
     # --- Added for "clean/modern" feel ---
@@ -42,7 +42,6 @@ nav:
     - 'Framework': 'Frontend/Framework.md'
   - 'ThreeJS':
     - "Overview": 'ThreeJS/index.md'
-    - "ThreeJS Backend": 'ThreeJS/ThreeJS Backend.md'
   - 'Cad to ThreeJS':
     - 'Overview': 'CadToThreeJS/index.md'
     - 'GLB + Parameters': 'CadToThreeJS/GLB+Parameters.md'
@@ -51,7 +50,6 @@ nav:
   - 'Fertigung':
     - 'Overview' : 'Fertigung/Fertigung.md'
     - 'Maschinen': 'Fertigung/Maschinenvergleich.md'
-    - 'Fertigung': 'Fertigung/Fertigung.md'
   - 'Marktstrategie & Analyse': 
     - 'Marktstrategie & Analyse': 'Marktstrategie & Analyse/Marktanalyse.md'
     - 'Kundenbedeurfnisse': 'Marktstrategie & Analyse/Kundenbeduerfnisse.md'
