@@ -57,7 +57,6 @@ nav:
           - 'GLB + Parameters': 'Frontend/ThreeJS/CadToThreeJS/GLB+Parameters.md'
           - 'Object Wrapping': 'Frontend/ThreeJS/CadToThreeJS/Wrapping.md'
           - 'Feature Tree Transpiling': 'Frontend/ThreeJS/CadToThreeJS/FeatureTreeToManifold3d.md'
-    - 'Backend':
   - 'Fertigung':
     - 'Overview' : 'Fertigung/Fertigung.md'
     - 'Maschinen': 'Fertigung/Maschinenvergleich.md'
