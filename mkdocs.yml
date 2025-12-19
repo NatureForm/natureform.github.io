@@ -32,27 +32,33 @@ theme:
 
 nav:
   - 'Home': 'index.md'
-  - 'Frontend':
-    - 'Model Configurator':
-      - 'Overview': 'Frontend/ModelConfigurator/index.md'
-      - 'Collision': 'Frontend/ModelConfigurator/Collision.md'
-      - 'WrappingLogic': 'Frontend/ModelConfigurator/WrappingLogic.md'
-      - 'Silhouette Extractor': 'Frontend/ModelConfigurator/SilhouetteExtractor.md'
-    - 'Floorplan Configurator': 'Frontend/FloorplanConfigurator.md'
-    - 'Framework': 'Frontend/Framework.md'
-  - 'ThreeJS':
-    - "Overview": 'ThreeJS/index.md'
-  - 'Cad to ThreeJS':
-    - 'Overview': 'CadToThreeJS/index.md'
-    - 'GLB + Parameters': 'CadToThreeJS/GLB+Parameters.md'
-    - 'Object Wrapping': 'CadToThreeJS/Wrapping.md'
-    - 'Feature Tree Transpiling': 'CadToThreeJS/FeatureTreeToManifold3d.md'
-  - 'Fertigung':
-    - 'Overview' : 'Fertigung/Fertigung.md'
-    - 'Maschinen': 'Fertigung/Maschinenvergleich.md'
   - 'Marktstrategie & Analyse': 
     - 'Marktstrategie & Analyse': 'Marktstrategie & Analyse/Marktanalyse.md'
     - 'Kundenbedeurfnisse': 'Marktstrategie & Analyse/Kundenbeduerfnisse.md'
     - 'Konkurrenzanalyse':
       - 'Ikea': 'Marktstrategie & Analyse/Konkurrenzanalyse/Ikea.md'
     - 'Zielgruppe': 'Marktstrategie & Analyse/Zielgruppe.md'
+  - 'konfigurierbare Modelle':
+    - 'Anfoderungen': 'konfigurierbare Modelle/Anforderungen.md'
+    - 'Ideen': 'konfigurierbare Modelle/Ideen.md'
+  - 'Software':
+    - 'Frontend':
+      - 'Model Configurator':
+        - 'Overview': 'Frontend/ModelConfigurator/index.md'
+        - 'Collision': 'Frontend/ModelConfigurator/Collision.md'
+        - 'WrappingLogic': 'Frontend/ModelConfigurator/WrappingLogic.md'
+        - 'Silhouette Extractor': 'Frontend/ModelConfigurator/SilhouetteExtractor.md'
+      - 'Floorplan Configurator': 'Frontend/FloorplanConfigurator.md'
+      - 'Framework': 'Frontend/Framework.md'
+      - 'ThreeJS':
+        - "Overview": 'Frontend/ThreeJS/index.md' 
+        - 'Cad to ThreeJS':
+          - 'Overview': 'Frontend/ThreeJS/CadToThreeJS/index.md'
+          - 'GLB + Parameters': 'Frontend/ThreeJS/CadToThreeJS/GLB+Parameters.md'
+          - 'Object Wrapping': 'Frontend/ThreeJS/CadToThreeJS/Wrapping.md'
+          - 'Feature Tree Transpiling': 'Frontend/ThreeJS/CadToThreeJS/FeatureTreeToManifold3d.md'
+    - 'Backend':
+  - 'Fertigung':
+    - 'Overview' : 'Fertigung/Fertigung.md'
+    - 'Maschinen': 'Fertigung/Maschinenvergleich.md'
+
