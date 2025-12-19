@@ -52,6 +52,8 @@ Alle Verbindungen müssen folgende Grundanforderungen erfüllen:
 
 ## 3. Steckverbindungen (Feder–Nut)
 
+![Feder-Nut](image.png)
+
 ### 3.1 Beschreibung
 
 - Formschlüssige Verbindung über:
