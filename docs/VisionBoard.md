@@ -1,119 +1,156 @@
-# Vision Board – InspirationsBeispiele für Balkonmöbel
+# Vision Board – Referenzanalyse & Inspiration
 
-Dieses Dokument sammelt inspirierende Beispiele, die als Grundlage oder Motivation für die Entwicklung eigener Balkonmöbel dienen können.  
-Jedes Beispiel wird mit Link, kurzer Beschreibung, Bewertung (gut/schlecht) und möglichen Anpassungen für die eigene Umsetzung dokumentiert.
+**Status:** Recherche & Benchmarking  
+**Thema:** Entwicklung eines Konfigurators für Balkonmöbel
 
----
-
-## Beispiel 1: 3D-Assets
-**Link:** https://boytchev.github.io/3d-assets/
-
-**Beschreibung:**  
-Dieses Beispiel lässt verschiedene Beispiele über Parameter geometrisch modifizieren
-
- <video controls src="boytchev.github.io_3d-assets_online_bookshelf.html - Google Chrome 2025-09-02 23-15-39.mp4" title="Title"></video>
- 
-**Was ist gut:**  
-- Parametrische Steuerung funktioniert sehr intuitiv.  
-- Einfaches Beispiel für Live-Anpassungen von Geometrien.  
-
-**Was ist schlecht / verbesserungswürdig:**  
-- Oberfläche wirkt technisch und nicht besonders „benutzerfreundlich“.  
-- Fokus liegt eher auf Demonstration, nicht auf Produkt-UX.  
-
-**Was müsste ich ändern für meine Implementierung:**  
-- Oberfläche ansprechender gestalten.  
-- Konkrete Möbel statt abstrakte Geometrien einsetzen.  
-- Evtl. Verbindung mit einer Datenbank für Maße und Preise. 
----
-
-## Beispiel 2: csg-house
-**Link:** https://codesandbox.io/p/sandbox/csg-house-y52tmt  
-**Beschreibung:**  
-Ein Modell eines Hauses, an dem sich Fenster und Türen verschieben lassen könngen inkl. des Sourcecodes 
-
-![alt text](image.png)
-
-**Was ist gut:**  
-- Sehr gutes Beispiel für „parametrisches Modellieren“.  
-- Einfacher Einstieg in CSG (Constructive Solid Geometry).  
-
-**Was ist schlecht / verbesserungswürdig:**  
-- Nur ein Hausmodell, nicht direkt auf Möbel übertragbar.  
-- Oberfläche sehr roh und ohne visuelles Design.  
-
-**Was müsste ich ändern für meine Implementierung:**  
-- Möbelobjekte statt Häuser.  
-- Einfache Benutzeroberfläche für Endkunden.  
-- Exportierbare Daten (Stücklisten etc.) hinzufügen.
+Dieses Dokument dient als Inspirationsquelle und technische Referenz. Es analysiert bestehende Lösungen hinsichtlich User Experience (UX), technischer Machbarkeit und Design, um Anforderungen für das eigene Projekt abzuleiten.
 
 ---
 
-## Beispiel 3: bang-olufsen Konfigurator
-**Link:** https://www.bang-olufsen.com/de/int/composer?page=productselection
+## Referenz 1: Gridfinity Generator
+**Link:** [https://gridfinitygenerator.com/en](https://gridfinitygenerator.com/en)
 
-**Beschreibung:**  
-Konfigurator für Lautsprecher von bang-olufsen als Beispiel für eine gelugene Implementierung
-<video controls src="bang-olufsen Konfigurator.mp4" title="Title"></video>
+**Beschreibung:** Ein spezialisierter, webbasierter Generator für das "Gridfinity"-Ordnungssystem. Nutzer können Parameter wie Dimensionen, Stapelbarkeit und Fächeraufteilung definieren und erhalten ein druckbares 3D-Modell.
 
-**Was ist gut:**  
-- Sehr hochwertige User Experience.  
-- Kombination von Design und Konfiguration.  
-- Markenimage wird elegant integriert.  
+![Screenshot Gridfinity Generator](image-3.png)
 
-**Was ist schlecht / verbesserungswürdig:**  
-- Sehr komplexe Entwicklung, hoher Aufwand.  
+**Analyse: Stärken**
+* **Fokus auf Parameter:** Die Eingabemasken sind sauber von der 3D-Vorschau getrennt.
+* **Performance:** Schnelles Rendering der Geometrie bei Parameteränderungen.
+* **Zweckmäßigkeit:** Sehr "werkzeugorientiertes" Design, das effizient zum Ergebnis führt.
 
-**Was müsste ich ändern für meine Implementierung:**  
-- Integration mit Fertigungs-Back-End.  
+**Analyse: Schwächen**
+* Visuell sehr nüchtern (Dark Mode Utility-Style), wenig emotionale Ansprache für Möbelkunden.
 
----
-
-## Beispiel 4: hulo Tischkonfigurator
-**Link:** https://hulo.be/configurator/
-
-**Beschreibung:**  
-Konfigurator für Tische als Beispiel für eine gelugene Implementierung
-![alt text](image-1.png)
-
-Hier wird das vorgehen von einem Developer dieses Konfigurators beschrieben: [discourse.threejs.org](https://discourse.threejs.org/t/procedural-parametric-furniture-in-threejs/68760)
-
-**Was ist gut:**  
-- Direkt auf Möbel anwendbar (Tische).  
-- Parametrische Maßeinstellung.  
-- UX relativ einfach verständlich.  
-
-**Was ist schlecht / verbesserungswürdig:**  
-- Fokus nur auf eine Möbelart (Tische).  
-- Teilweise noch technisch in der Bedienung.  
-
-**Was müsste ich ändern für meine Implementierung:**  
-- Konfiguration auf Balkonmöbel erweitern (Stühle, Bänke etc.).  
-- Benutzerfreundlichkeit weiter optimieren.  
-- Verbindung zur Stücklisten-Generierung.  
+**Transfer-Potenzial (To-Do):**
+* Übernahme der Logik für parametrische Größenänderungen (Breite/Höhe/Tiefe).
+* Implementierung einer Echtzeit-Vorschau, die sich instantan aktualisiert.
 
 ---
 
-## Beispiel 5: IKEA Home Planner
-**Link:** https://www.ikea.com/de/de/planner/  
+## Referenz 2: Perplexing Labs Gridfinity
+**Link:** [https://gridfinity.perplexinglabs.com/](https://gridfinity.perplexinglabs.com/)
 
-![alt text](image-2.png)
+**Beschreibung:** Eine alternative Implementierung eines Gridfinity-Konfigurators, der eine andere Herangehensweise an die UI/UX wählt und tiefere Konfigurationsmöglichkeiten bietet.
 
-**Beschreibung:**  
-Bekannter Möbelplaner, mit dem Kunden Räume und Möbel virtuell konfigurieren können.  
+![Screenshot Perplexing Labs](image-4.png)
 
-**Was ist gut:**  
-- Sehr benutzerfreundlich und bekannt.  
-- Direkte Verbindung zur Bestellung.  
-- Nutzer können sofort ausprobieren.  
+**Analyse: Stärken**
+* **Umfangreiche Optionen:** Zeigt, wie viele Parameter (bis ins Detail) dem Nutzer angeboten werden können, ohne die Übersicht komplett zu verlieren.
+* **Kamerasteuerung:** Intuitive Navigation im 3D-Raum.
 
-**Was ist schlecht / verbesserungswürdig:**  
-- Teilweise überladen mit Features.  
+**Analyse: Schwächen**
+* Für Endkunden im Möbelbereich evtl. zu technisch ("Engineering-Look").
 
-**Was müsste ich ändern für meine Implementierung:**  
-- Reduzierter Funktionsumfang für Balkone.  
-- Fokus auf Individualisierung statt Massenprodukt.  
+**Transfer-Potenzial (To-Do):**
+* Evaluation der verwendeten Bibliotheken für das Handling komplexer Geometrie-Updates.
+* Abwägung: Wie viele technische Details (z.B. Wandstärken) muss der Endkunde sehen?
 
 ---
 
-### --> Alle diese Konfiguratoren wurden mit three.js erstellt (Ikea vlt nicht). Aus diesem Grund wird [hier](./Software/three.js.md) das Framework genauerbetrachter 
+## Referenz 3: Parametrische 3D-Assets (Boytchev)
+**Link:** [https://boytchev.github.io/3d-assets/](https://boytchev.github.io/3d-assets/)
+
+**Beschreibung:** Demonstration verschiedener geometrischer Objekte, die über Schieberegler in Echtzeit modifiziert werden können.
+
+<video controls src="boytchev.github.io_3d-assets_online_bookshelf.html - Google Chrome 2025-09-02 23-15-39.mp4" title="Demo Boytchev"></video>
+
+**Analyse: Stärken**
+* **Intuitive Steuerung:** Parametrische Anpassungen sind sofort verständlich.
+* **Tech-Demo:** Exzellenter Proof-of-Concept für browserbasierte Geometrieanpassung.
+
+**Analyse: Schwächen**
+* Reine Tech-Demo ohne UX-Konzept für Endanwender.
+* Optik wirkt abstrakt und mathematisch.
+
+**Transfer-Potenzial (To-Do):**
+* Oberfläche (UI) muss emotionaler gestaltet werden (Materialien, Licht).
+* Abstrakte Geometrie muss durch konkrete Möbelkomponenten ersetzt werden.
+* Anbindung an eine Datenbank für Preiskalkulation notwendig.
+
+---
+
+## Referenz 4: CSG House (CodeSandbox)
+**Link:** [https://codesandbox.io/p/sandbox/csg-house-y52tmt](https://codesandbox.io/p/sandbox/csg-house-y52tmt)
+
+**Beschreibung:** Ein Architektur-Modell, das Constructive Solid Geometry (CSG) nutzt, um Fenster und Türen interaktiv im Baukörper zu verschieben (inkl. Sourcecode).
+
+![CSG House Beispiel](image.png)
+
+**Analyse: Stärken**
+* **CSG-Einsatz:** Zeigt sehr gut, wie Boolesche Operationen (Subtraktion von Volumen) im Browser funktionieren.
+* **Interaktivität:** Drag & Drop von Elementen am Modell.
+
+**Analyse: Schwächen**
+* Modell (Haus) nicht direkt auf Möbel übertragbar.
+* Kein visuelles Design ("Rohzustand").
+
+**Transfer-Potenzial (To-Do):**
+* Adaption für Möbel: z.B. Ausschnitte für Kabelkanäle oder Griffe.
+* Erweiterung um Export-Funktionen (Stücklisten/BOM).
+
+---
+
+## Referenz 5: Bang & Olufsen Konfigurator
+**Link:** [https://www.bang-olufsen.com/de/int/composer?page=productselection](https://www.bang-olufsen.com/de/int/composer?page=productselection)
+
+**Beschreibung:** High-End Konfigurator für Lautsprecher, der Design und Funktionalität nahtlos verbindet.
+
+<video controls src="bang-olufsen Konfigurator.mp4" title="B&O Konfigurator"></video>
+
+**Analyse: Stärken**
+* **Premium UX:** Hochwertige Inszenierung, flüssige Animationen.
+* **Branding:** Das Markenimage wird durch den Konfigurator gestärkt.
+
+**Analyse: Schwächen**
+* Hohe Entwicklungskomplexität und Kosten.
+
+**Transfer-Potenzial (To-Do):**
+* Zielsetzung für das "Look & Feel" der finalen Anwendung.
+* Integration mit Backend-Systemen (Fertigung/Bestellung) ist hier essentiell gelöst.
+
+---
+
+## Referenz 6: Hulo Tischkonfigurator
+**Link:** [https://hulo.be/configurator/](https://hulo.be/configurator/)
+
+**Beschreibung:** Ein dedizierter Konfigurator für Tische. Technische Hintergründe werden hier diskutiert: [discourse.threejs.org](https://discourse.threejs.org/t/procedural-parametric-furniture-in-threejs/68760).
+
+![Hulo Tischkonfigurator](image-1.png)
+
+**Analyse: Stärken**
+* **Domain-Fit:** Passt thematisch genau (Möbel).
+* **Simplicity:** Einfache UX, Fokus auf Maße und Materialien.
+
+**Analyse: Schwächen**
+* Auf einen einzigen Möbeltyp (Tisch) beschränkt.
+* Teilweise noch etwas technisch in der Anmutung.
+
+**Transfer-Potenzial (To-Do):**
+* Erweiterung des Konzepts auf modulare Balkonmöbel (Bänke, Stauraum).
+* Optimierung der Usability für mobile Endgeräte.
+
+---
+
+## Referenz 7: IKEA Home Planner
+**Link:** [https://www.ikea.com/de/de/planner/](https://www.ikea.com/de/de/planner/)
+
+![IKEA Planer](image-2.png)
+
+**Beschreibung:** Der Industriestandard für Raum- und Möbelplanung im Massenmarkt.
+
+**Analyse: Stärken**
+* **Bekanntheit:** Nutzer kennen und verstehen das Bedienkonzept (geringe Lernkurve).
+* **E-Commerce:** Nahtlose Integration in den Warenkorb.
+
+**Analyse: Schwächen**
+* Feature-Overload: Für einen Nischen-Konfigurator oft zu mächtig und komplex.
+
+**Transfer-Potenzial (To-Do):**
+* **Reduktion:** Fokus auf Individualisierung statt Massenplanung.
+* Spezialisierung auf den Kontext "Balkon" (Wetterfestigkeit, begrenzter Platz).
+
+---
+
+### Technische Basis
+Die meisten der analysierten Konfiguratoren basieren auf **three.js** (WebGL). Aus diesem Grund erfolgt im Dokument [Technologie-Stack: three.js](./Software/three.js.md) eine detaillierte Betrachtung des Frameworks.

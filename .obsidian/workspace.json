@@ -1,0 +1,199 @@
+{
+  "main": {
+    "id": "1db23e50d5a7a63d",
+    "type": "split",
+    "children": [
+      {
+        "id": "22995b0ef4b9085f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a1abe9736e0424fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "FeatureTreeToManifold3d"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d652f2ba0f917c11",
+    "type": "split",
+    "children": [
+      {
+        "id": "57ecf1a517655b80",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d2af6a69215add5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7c9ddb7f953d8115",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "6c645627ce647b54",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "910fc02a25adc51b",
+    "type": "split",
+    "children": [
+      {
+        "id": "e111e42e8d9dc7e0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "82bd8a074513541e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for FeatureTreeToManifold3d"
+            }
+          },
+          {
+            "id": "1bb3b379193e5b11",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from FeatureTreeToManifold3d"
+            }
+          },
+          {
+            "id": "dd1f28c46832d5c8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b3899acb8371aa13",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b2f12c3aa54ef975",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of FeatureTreeToManifold3d"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "a1abe9736e0424fe",
+  "lastOpenFiles": [
+    "docs/CadToThreeJS/GLB+Parameters.md",
+    "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
+    "Untitled.base",
+    "Untitled.canvas",
+    "Excalidraw/Drawing 2025-11-27 20.24.37.excalidraw.md",
+    "Excalidraw/Drawing 2025-11-27 20.24.36.excalidraw.md",
+    "Excalidraw/Drawing 2025-11-27 20.23.34.excalidraw.md",
+    "Excalidraw",
+    "docs/NatureForm Overview.md"
+  ]
+}
