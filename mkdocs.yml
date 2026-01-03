@@ -33,6 +33,7 @@ theme:
 nav:
   - 'Home': 'index.md'
   - 'Marktstrategie & Analyse': 
+    - 'Businessplan': 'Marktstrategie & Analyse/Businessplan/Businessplan.md'
     - 'Marktstrategie & Analyse': 'Marktstrategie & Analyse/Marktanalyse.md'
     - 'Kundenbedeurfnisse': 'Marktstrategie & Analyse/Kundenbeduerfnisse.md'
     - 'Konkurrenzanalyse':
