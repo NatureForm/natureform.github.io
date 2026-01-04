@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Marktstrategie & Analyse/Businessplan/Businessplan.md",
+                "file": "docs/Marktstrategie & Analyse/Einordnung & Marktpotenzial.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Businessplan"
+              "title": "Einordnung & Marktpotenzial"
             }
           }
         ]
@@ -186,8 +186,10 @@
   },
   "active": "a1abe9736e0424fe",
   "lastOpenFiles": [
-    "docs/image-1.png",
     "docs/Marktstrategie & Analyse/Businessplan/Businessplan.md",
+    "docs/Marktstrategie & Analyse/Einordnung & Marktpotenzial.md",
+    "docs/Marktstrategie & Analyse/Unbenannt",
+    "docs/image-1.png",
     "docs/konfigurierbare Modelle/Verbindungen und Montagehilfen.md",
     "docs/Marktstrategie & Analyse/Konkurrenzanalyse/Ikea.md",
     "docs/Marktstrategie & Analyse/Businessplan",

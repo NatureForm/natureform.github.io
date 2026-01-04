@@ -1,2 +1,2 @@
 
-Test: Pedro erklärt mir Github..
+Test: Pedro erklärt mir Github.

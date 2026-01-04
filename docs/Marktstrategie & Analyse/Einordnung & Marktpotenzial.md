@@ -1,0 +1,1 @@
+Das Projekt adressiert ein echtes, alltägliches Problem und kombiniert **Design, Individualisierung, Digitalisierung und Automatisierung** auf intelligente Weise. Dadurch hat das Konzept das Potenzial für eine sehr **hohe Skalierbarkeit**. 
