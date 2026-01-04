@@ -21,3 +21,34 @@ Maßanfertigungen gibt es --> aber:
 - nicht skalierbar
 
 Das Konzept positioniert sich **zwischen IKEA & Schreiner** - und bietet damit enorme Umsatzchancen.
+
+## 2. Stärken der Idee
+
+### Mass Customization (sehr stark)
+
+- Maßanfertigung
+- Trotzdem standardisierte Module
+- Ideal für Automatisierung
+
+### Digitaler Konfigurator
+
+- Weckt Emotionen (Spiel, Vorfreude)
+- Reduziert Beratungskosten
+- Skaliert international
+
+### Hoher wahrgenommener Wert
+
+- Balkon bedeutet Lebensqualität
+- Sinnvolle ansprechende Wohnraumerweiterung, statt ungenutzte kalte Fläche
+
+### Klare Zielgruppe
+
+- Stadtbewohner
+- Mieter & Eigentümer
+- Design-affin, aber pragmatisch
+
+### Geringe Rücksendequote (wenn Konzept gut umgesetzt)
+
+- Maßanfertigung bedeutet bewusste Kaufentscheidung
+
+
