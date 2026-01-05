@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
+                "file": "docs/Frontend/Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FeatureTreeToManifold3d"
+              "title": "Framework"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 672.5
   },
   "right": {
     "id": "910fc02a25adc51b",
@@ -186,6 +186,7 @@
   },
   "active": "a1abe9736e0424fe",
   "lastOpenFiles": [
+    "docs/Frontend/Manifold/Model-Development-Guide.md",
     "docs/CadToThreeJS/GLB+Parameters.md",
     "docs/CadToThreeJS/FeatureTreeToManifold3d.md",
     "Untitled.base",

@@ -1,4 +1,4 @@
-# Framework: Why We Use React
+# Framework: Why We Use React as a framework
 
 This document provides a high-level overview of why React was chosen as the framework for this application and how its core principles are used to manage our interactive tools.
 
