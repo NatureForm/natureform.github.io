@@ -63,4 +63,5 @@ nav:
   - 'Fertigung':
     - 'Overview' : 'Fertigung/Fertigung.md'
     - 'Maschinen': 'Fertigung/Maschinenvergleich.md'
+  - 'Wissensdatenbank': 'Wissensdatenbank.md'
 
