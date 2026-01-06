@@ -1,0 +1,2137 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://natureform.github.io/Frontend/ThreeJS/CadToThreeJS/FeatureTreeToManifold3d/">
+      
+      
+        <link rel="prev" href="../Wrapping/">
+      
+      
+        <link rel="next" href="../../../../Fertigung/Fertigung/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Feature Tree Transpiling - NatureForm Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-transpiler-architecture-a-viable-path-for-parametric-cad" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="NatureForm Documentation" class="md-header__button md-logo" aria-label="NatureForm Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NatureForm Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Feature Tree Transpiling
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Marktstrategie%20%26%20Analyse/Einordnung%20%26%20Marktpotenzial/" class="md-tabs__link">
+          
+  
+  
+  Marktstrategie & Analyse
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../konfigurierbare%20Modelle/Anforderungen/" class="md-tabs__link">
+          
+  
+  
+  konfigurierbare Modelle
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../ModelConfigurator/" class="md-tabs__link">
+          
+  
+  
+  Software
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Fertigung/Fertigung/" class="md-tabs__link">
+          
+  
+  
+  Fertigung
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../Wissensdatenbank/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Wissensdatenbank
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="NatureForm Documentation" class="md-nav__button md-logo" aria-label="NatureForm Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NatureForm Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marktstrategie & Analyse
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Marktstrategie & Analyse
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie%20%26%20Analyse/Einordnung%20%26%20Marktpotenzial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Einordnung & Marktpotenzial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie & Analyse/Stärken der Idee.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stärken der Idee
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie%20%26%20Analyse/Businessplan/Businessplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Businessplan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie%20%26%20Analyse/Marktanalyse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marktstrategie & Analyse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie%20%26%20Analyse/Kundenbeduerfnisse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kundenbedeurfnisse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Konkurrenzanalyse
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Konkurrenzanalyse
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie%20%26%20Analyse/Konkurrenzanalyse/Ikea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ikea
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Marktstrategie%20%26%20Analyse/Zielgruppe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zielgruppe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    konfigurierbare Modelle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    konfigurierbare Modelle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../konfigurierbare%20Modelle/Anforderungen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anfoderungen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../konfigurierbare%20Modelle/Verbindungen%20und%20Montagehilfen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verbindungen und Montagehilfen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Configurator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Configurator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ModelConfigurator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ModelConfigurator/Collision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ModelConfigurator/WrappingLogic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WrappingLogic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ModelConfigurator/SilhouetteExtractor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silhouette Extractor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FloorplanConfigurator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floorplan Configurator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThreeJS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThreeJS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4_2" id="__nav_4_1_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cad to ThreeJS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_1_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cad to ThreeJS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GLB%2BParameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GLB + Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wrapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Wrapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Tree Transpiling
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Tree Transpiling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-transpiler-architecture-a-viable-path-for-parametric-cad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "Transpiler" Architecture: A Viable Path for Parametric CAD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-core-concept-a-compiler-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Core Concept: A Compiler Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-core-components-in-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Components in Detail
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Core Components in Detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-a-the-json-recipe-the-intermediate-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component A: The JSON "Recipe" (The Intermediate Representation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-b-the-javascript-translator-the-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component B: The JavaScript "Translator" (The Interpreter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-c-the-manifold3d-kernel-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component C: The Manifold3D Kernel (The "Machine")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-full-workflow-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The Full Workflow (Step-by-Step)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-real-work-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The "Real" Work &amp; Challenges
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fertigung
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fertigung
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Fertigung/Fertigung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Fertigung/Maschinenvergleich/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maschinen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Wissensdatenbank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wissensdatenbank
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-transpiler-architecture-a-viable-path-for-parametric-cad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "Transpiler" Architecture: A Viable Path for Parametric CAD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-core-concept-a-compiler-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Core Concept: A Compiler Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-core-components-in-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Components in Detail
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Core Components in Detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-a-the-json-recipe-the-intermediate-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component A: The JSON "Recipe" (The Intermediate Representation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-b-the-javascript-translator-the-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component B: The JavaScript "Translator" (The Interpreter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-c-the-manifold3d-kernel-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component C: The Manifold3D Kernel (The "Machine")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-full-workflow-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The Full Workflow (Step-by-Step)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-real-work-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The "Real" Work &amp; Challenges
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Feature Tree Transpiling</h1>
+
+<h3 id="the-transpiler-architecture-a-viable-path-for-parametric-cad">The "Transpiler" Architecture: A Viable Path for Parametric CAD</h3>
+<p>This document explains the "Compiler/Transpiler" model for creating a parametric 3D web application. This is the correct, robust, and scalable alternative to the "glTF + JSON" approach.</p>
+<p>Instead of modifying existing geometry, this architecture <strong>rebuilds the entire 3D model from scratch</strong> on every parameter change. This is made possible by a fast, client-side geometry kernel.</p>
+<hr />
+<h3 id="1-the-core-concept-a-compiler-pipeline">1. The Core Concept: A Compiler Pipeline</h3>
+<p>Think of this entire system as a compiler, which has three distinct parts. This analogy is the key to understanding the workflow.</p>
+<ol>
+<li>
+<p><strong>The Frontend (The CAD Plugin):</strong></p>
+<ul>
+<li><strong>What it is:</strong> A custom plugin you write for your "source" CAD software (e.g., Inventor, SolidWorks).</li>
+<li><strong>Job:</strong> To "parse" the proprietary, native feature tree and translate it into a universal, intermediate language.</li>
+</ul>
+</li>
+<li>
+<p><strong>The Intermediate Representation (IR):</strong></p>
+<ul>
+<li><strong>What it is:</strong> Your custom <strong>"JSON Contract"</strong> or "Feature Tree."</li>
+<li><strong>Job:</strong> To represent the <em>design intent</em> (the step-by-step recipe) in a simple, standardized, text-based format. This is your "Abstract Syntax Tree" (AST).</li>
+</ul>
+</li>
+<li>
+<p><strong>The Backend (The Web App):</strong></p>
+<ul>
+<li><strong>What it is:</strong> Your JavaScript/TypeScript code running in the browser.</li>
+<li><strong>Job:</strong> To "compile" or "interpret" the JSON (the IR) into "machine code"—a series of low-level commands that a geometry kernel can execute.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="2-the-core-components-in-detail">2. The Core Components in Detail</h3>
+<h4 id="component-a-the-json-recipe-the-intermediate-representation">Component A: The JSON "Recipe" (The Intermediate Representation)</h4>
+<p>This is the file you custom-export from your CAD software. It is <strong>not</strong> just a list of parameters. It is a <strong>step-by-step history of operations</strong> that reference those parameters.</p>
+<p><strong>Example <code>recipe.json</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;parameters&quot;: {
+    &quot;width&quot;: 100,
+    &quot;length&quot;: 150,
+    &quot;thickness&quot;: 20,
+    &quot;hole_diam&quot;: 15
+  },
+  &quot;history&quot;: [
+    {
+      &quot;id&quot;: &quot;base_sketch&quot;,
+      &quot;type&quot;: &quot;SKETCH_2D&quot;,
+      &quot;plane&quot;: &quot;XY&quot;,
+      &quot;shapes&quot;: [
+        { &quot;type&quot;: &quot;rect&quot;, &quot;x&quot;: 0, &quot;y&quot;: 0, &quot;w&quot;: &quot;width&quot;, &quot;h&quot;: &quot;length&quot; }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;base_solid&quot;,
+      &quot;type&quot;: &quot;EXTRUDE&quot;,
+      &quot;target&quot;: &quot;base_sketch&quot;,
+      &quot;depth&quot;: &quot;thickness&quot;
+    },
+    {
+      &quot;id&quot;: &quot;hole_cutout&quot;,
+      &quot;type&quot;: &quot;CYLINDER&quot;,
+      &quot;radius&quot;: &quot;hole_diam / 2&quot;,
+      &quot;height&quot;: &quot;thickness + 10&quot;,
+      &quot;position&quot;: [&quot;width / 2&quot;, &quot;length / 2&quot;, 0]
+    },
+    {
+      &quot;id&quot;: &quot;final_part&quot;,
+      &quot;type&quot;: &quot;BOOLEAN_CUT&quot;,
+      &quot;target&quot;: &quot;base_solid&quot;,
+      &quot;tool&quot;: &quot;hole_cutout&quot;
+    }
+  ]
+}
+</code></pre>
+<h4 id="component-b-the-javascript-translator-the-interpreter">Component B: The JavaScript "Translator" (The Interpreter)</h4>
+<p>This is the core of your web application. It is a <strong>tree walker</strong> that uses the "Visitor" pattern. Its job is to read the <code>history</code> array from the JSON and call the Manifold3D API.</p>
+<p><strong>Example <code>translator.js</code> (Simplified):</strong></p>
+<pre><code class="language-javascript">// (Assumes Manifold3D WASM module is loaded as 'manifold')
+
+class ParametricEngine {
+  constructor() {
+    this.cache = new Map(); // Stores features by ID (e.g., 'base_solid')
+  }
+
+  // Main function to build the model
+  build(contract) {
+    this.cache.clear();
+    const params = contract.parameters;
+
+    // 1. Create a parameter evaluator
+    // (This is a helper that safely evaluates &quot;width / 2&quot; to 50)
+    const eval = (expr) =&gt; this.evaluate(expr, params);
+
+    // 2. Walk the feature tree
+    for (const step of contract.history) {
+      switch (step.type) {
+
+        case 'SKETCH_2D':
+          // Creates a 2D Manifold.CrossSection object
+          const poly = manifold.CrossSection.rectangle(
+            eval(step.shapes[0].w), 
+            eval(step.shapes[0].h)
+          );
+          this.cache.set(step.id, poly);
+          break;
+
+        case 'EXTRUDE':
+          // Get the 2D sketch from the cache
+          const sketch = this.cache.get(step.target);
+          const depth = eval(step.depth);
+
+          // Call Manifold API
+          const solid = manifold.Manifold.extrude(sketch, depth);
+          this.cache.set(step.id, solid);
+          break;
+
+        case 'CYLINDER':
+          const r = eval(step.radius);
+          const h = eval(step.height);
+          const pos = [eval(step.position[0]), eval(step.position[1]), eval(step.position[2])];
+
+          // Call Manifold API
+          let cyl = manifold.Manifold.cylinder(h, r);
+          cyl = cyl.translate(pos);
+          this.cache.set(step.id, cyl);
+          break;
+
+        case 'BOOLEAN_CUT':
+          // Get the two solids from the cache
+          const target = this.cache.get(step.target);
+          const tool = this.cache.get(step.tool);
+
+          // Call Manifold API
+          const result = manifold.Manifold.difference(target, tool);
+          this.cache.set(step.id, result);
+          break;
+      }
+    }
+
+    // Return the final feature
+    return this.cache.get(contract.history.at(-1).id);
+  }
+
+  evaluate(expr, params) {
+    // In production, use a safe math parser, NOT eval()!
+    if (typeof expr === 'number') return expr;
+    let str = expr.toString();
+    for (const [key, val] of Object.entries(params)) {
+      str = str.replaceAll(key, val);
+    }
+    return new Function(`return ${str}`)();
+  }
+}
+</code></pre>
+<h4 id="component-c-the-manifold3d-kernel-the-machine">Component C: The Manifold3D Kernel (The "Machine")</h4>
+<p>This is the "dumb" but powerful engine. It doesn't know what a "feature tree" is. It only knows how to execute low-level commands passed to it by the Translator.</p>
+<hr />
+<h3 id="3-the-full-workflow-step-by-step">3. The Full Workflow (Step-by-Step)</h3>
+<p>Here is what happens when a user changes a parameter:</p>
+<ol>
+<li>
+<p><strong>Initial Load:</strong></p>
+<ul>
+<li>The browser loads your web app, the <code>Manifold3D.wasm</code> module, and the <code>recipe.json</code> for a default model.</li>
+<li>The <code>ParametricEngine</code> runs <code>build(recipe)</code> for the <em>first time</em>.</li>
+<li>It generates the final <code>Manifold</code> object.</li>
+<li>You convert this object to a <code>THREE.BufferGeometry</code> and add it to your scene.</li>
+</ul>
+</li>
+<li>
+<p><strong>User Interaction:</strong></p>
+<ul>
+<li>A user moves a UI slider, changing <code>parameters.width</code> from <code>100</code> to <code>110</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>The Re-Build:</strong></p>
+<ul>
+<li>You call <code>engine.build(recipe)</code> again with the <em>new</em> parameters.</li>
+<li>The engine <strong>throws away all old results</strong> in its cache.</li>
+<li>It re-runs the <em>entire</em> history from top to bottom, but this time using <code>width = 110</code>.</li>
+<li><code>SKETCH_2D</code>: Creates a <em>wider</em> 2D rectangle.</li>
+<li><code>EXTRUDE</code>: Extrudes the <em>wider</em> sketch.</li>
+<li><code>CYLINDER</code>: Re-creates the cylinder at the <em>new</em> position (<code>width / 2</code> is now <code>55</code>).</li>
+<li><code>BOOLEAN_CUT</code>: Subtracts the cylinder from the wider block.</li>
+<li>The whole process takes <strong>5-10 milliseconds</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>The Render:</strong></p>
+<ul>
+<li>The <code>build()</code> function returns the <em>new</em> <code>Manifold</code> object.</li>
+<li>You <strong>dispose of the old <code>BufferGeometry</code></strong> in Three.js (to prevent memory leaks).</li>
+<li>You create a new <code>BufferGeometry</code> from the new Manifold object and put it in the scene.</li>
+<li>To the user, the model appears to have "updated instantly."</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="4-the-real-work-challenges">4. The "Real" Work &amp; Challenges</h3>
+<p>This architecture is robust, but the work is <strong>significant</strong>. The complexity is no longer in Three.js, but in building the translator.</p>
+<ol>
+<li>
+<p><strong>The Exporter Plugin (The #1 Hurdle):</strong>
+    This is the "Compiler Frontend." You must write a plugin for SolidWorks (C#), Inventor (VBA/iLogic), or Fusion 360 (Python) that can read the <em>real</em> feature tree and export your <em>custom</em> JSON. This is a complex, software-specific task.</p>
+</li>
+<li>
+<p><strong>2D Sketch Engine:</strong>
+    My example used a simple rectangle. A real translator needs to read/execute complex 2D sketches with lines, arcs, and constraints. This is a major engineering task in itself.</p>
+</li>
+<li>
+<p><strong>Topological Referencing (The "Hard Problem"):</strong>
+    My JSON used math (<code>width / 2</code>). A real CAD model uses topology (<code>sketch on this face</code>, <code>fillet on this edge</code>). When the model rebuilds, "Face #3" might become "Face #5". You must build a system to reliably track these relationships. This is the hardest part of CAD development.</p>
+</li>
+<li>
+<p><strong>Fillets and Chamfers (The Kernel Limitation):</strong>
+    Manifold3D is a CSG kernel and does <em>not</em> have simple commands for fillets or chamfers. You must implement the math for these yourself (e.g., by creating a "negative" torus shape and subtracting it), which is extremely difficult.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "header.autohide", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
