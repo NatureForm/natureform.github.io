@@ -151,6 +151,14 @@ Dieses Dokument dient als Inspirationsquelle und technische Referenz. Es analysi
 * Spezialisierung auf den Kontext "Balkon" (Wetterfestigkeit, begrenzter Platz).
 
 ---
+## Referenz 8: Thuma Beds
+**Link:** [https://www.ikea.com/de/de/planner/](https://www.ikea.com/de/de/planner/)
+
+![[Pasted image 20260106142848.png]]
+
+**Beschreibung:** Bett Konfigurator mit einfacher Montage
+
+---
 
 ### Technische Basis
 Die meisten der analysierten Konfiguratoren basieren auf **three.js** (WebGL). Aus diesem Grund erfolgt im Dokument [Technologie-Stack: three.js](./Software/three.js.md) eine detaillierte Betrachtung des Frameworks.
